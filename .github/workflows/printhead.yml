@@ -10,4 +10,4 @@ jobs:
     env:
       head: ${{ github.head_ref }}
     steps:
-    - run: echo "$head"
+    - run: echo ${{ toJSON(github.event.pull_request.title) }}
