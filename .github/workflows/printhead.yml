@@ -1,0 +1,13 @@
+name: Print Head
+
+on:
+  pull_request:
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    name: print head
+    env:
+      head: ${{ github.head_ref }}
+    steps:
+    - run: echo "$head"
