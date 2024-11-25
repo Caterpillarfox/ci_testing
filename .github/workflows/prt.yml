@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Test
-        run: echo "${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request'}}"
+        run: echo "${{ github.event.pull_request.head.repo.full_name }} == ${{github.repository && github.event_name == 'pull_request'}}"
         
       - name: CK
         uses: actions/checkout@v4
