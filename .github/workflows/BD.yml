@@ -1,0 +1,32 @@
+name: BD
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        type: choice
+        description: D
+        options:
+          - testflight
+          - production
+      runtimeVersion:
+        type: string
+        description: RV
+        required: true
+
+jobs:
+  bundleDeploy:
+    name: BD
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: CET
+        run: >
+          echo "Passed"
+
+      - name: VV
+        if: ${{ inputs.runtimeVersion }}
+        run: |
+          if [ -z "${{ inputs.runtimeVersion }}" ]; then
+            [[ "${{ inputs.runtimeVersion }}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] && echo "Valid" || exit 1
+          fi
