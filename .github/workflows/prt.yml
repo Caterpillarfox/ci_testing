@@ -12,8 +12,10 @@ permissions:
 jobs:
   webpack-analyzer:
     runs-on: ubuntu-22.04
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request'}}
     steps:
+      - name: Test
+        run: echo "${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request'}}"
+        
       - name: CK
         uses: actions/checkout@v4
         with:
