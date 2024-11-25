@@ -1,0 +1,25 @@
+name: PRT
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+  actions: write
+  contents: read
+
+jobs:
+  webpack-analyzer:
+    runs-on: ubuntu-22.04
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event_name == 'pull_request'}}
+    steps:
+      - name: CK
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: VL
+        run: |
+          git checkout ${{ github.head_ref }}
+          git checkout ${{ github.base_ref }}
