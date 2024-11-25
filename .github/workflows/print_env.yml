@@ -1,0 +1,11 @@
+name: PRs
+on:
+  branch_protection_rule:
+    types: [created, deleted]
+    
+jobs:
+  print_issue_title:
+    runs-on: ubuntu-latest
+    name: some test
+    steps:
+    - run: env
